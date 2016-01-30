@@ -38,6 +38,16 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en',
+                ],
+            ],
+        ],
+        'language' => 'en',
     ],
     'params' => $params,
 ];
@@ -53,6 +63,10 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
     ];
+}
+
+if (file_exists(__DIR__ . '/local.php')) {
+    $config = \yii\helpers\ArrayHelper::merge($config, require (__DIR__ . '/local.php'));
 }
 
 return $config;

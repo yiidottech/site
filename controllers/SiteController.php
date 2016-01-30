@@ -49,7 +49,25 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index',[
+            'allProjects' => $this->getProjects(),
+            'projectCategories' => $this->getProjectCategories(),
+            'team' => $this->getTeamMembers(),
+        ]);
+    }
+
+    public function actionProject()
+    {
+        $p = \Yii::$app->request->get('p');
+        $projects = $this->getProjects();
+
+        if (!isset($projects[$p])) {
+            throw new \yii\web\NotFoundHttpException();
+        }
+
+        return $this->render('project',[
+            'p' => $p,
+        ]);
     }
 
     public function actionLogin()
@@ -90,5 +108,100 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    protected function getProjects()
+    {
+        $projects = [
+            'oks-rebranding' => ['webdesign,backend,frontend,branding,mobile', 1],
+            'site-buykey' => ['webdesign,backend,frontend,branding', 1],
+            'site-buydlplay' => ['webdesign,backend,frontend,branding'],
+            'site-pcgmedia' => ['webdesign,backend,frontend,branding', 1],
+            'site-dl2play' => ['webdesign,branding,frontend', 1],
+            'site-cdkeycompare' => ['webdesign,backend,frontend', 1],
+            'oks-spin-and-win' => ['webdesign,backend,frontend'],
+            'platform-antibot-cloudflare' => ['platform,backend'],
+            'platform-3rd-party-api-connect' => ['platform,backend'],
+            'platform-redis-optimization' => ['platform,backend'],
+            'oks-landing-pages' => ['webdesign'],
+            'platform-sellers-direct' => ['platform,backend'],
+            'platform-unified-accounts' => ['platform,backend,frontend'],
+            'platform-multidomain' => ['platform,backend'],
+            'platform-steam-connect' => ['platform,backend'],
+            'gamepyro-app' => ['webdesign,backend,apps'],
+            'platform-staff-permissions' => ['platform,backend'],
+            'platform-improved-antifraud' => ['platform,backend'],
+            'platform-social-login' => ['platform,frontend,backend'],
+            'platform-affiliates' => ['platform,backend,frontend'],
+            'platform-sellers' => ['platform,backend,frontend'],
+            'oks-forum'  => ['webdesign,backend,frontend'],
+            'oks-support-site' => ['webdesign,backend,frontend'],
+            'platform-gateways-integration' => ['platform,backend,gateways'],
+        ];
+
+        $return = [];
+
+        $projectCategories = $this->getProjectCategories();
+
+        foreach ($projects as $k => $v) {
+            $cats = explode(',', $v[0]);
+            $_cats = array();
+            foreach ($cats as $c) {
+                $_cats[$c] = $this->getProjectCategory($c);
+            }
+            $return[$k] = [
+                'title' => \Yii::t('site', 'projects.title.' . $k),
+                'categories' => $_cats,
+                'classes' => implode(' ', $cats),
+                'featured' => isset($v[1]) && $v[1],
+            ];
+        }
+
+        return $return;
+    }
+
+    public function getProjectCategories()
+    {
+        return [
+            'webdesign' => \Yii::t('labels', 'Web Design'),
+            'branding' => \Yii::t('labels', 'Branding'),
+            'backend' => \Yii::t('labels', 'Backend'),
+            'frontend' => \Yii::t('labels', 'Frontend'),
+            'mobile' => \Yii::t('labels', 'Mobile'),
+            'apps' => \Yii::t('labels', 'Apps'),
+            'gateways' => \Yii::t('labels', 'Payment Gateways'),
+            'platform'  => \Yii::t('labels', 'Platform Mods'),
+        ];
+    }
+
+    public function getProjectCategory($cat = '')
+    {
+        static $cats = null;
+
+        if (is_null($cats)) {
+            $cats = $this->getProjectCategories();
+        }
+
+        return isset($cats[$cat]) ? $cats[$cat] : '';
+    }
+
+    public function getTeamMembers()
+    {
+        $team = [
+            'igor' => [
+                'twitter' => 'http://twitter.com/yiitech',
+                'facebook' => 'https://www.facebook.com/yiitech/',
+                'googleplus' => 'https://plus.google.com/107270789500352408345',
+                'website' => 'http://yii.tech',
+            ],
+            'boris' => [
+                'twitter' => 'http://twitter.com/yiitech',
+                'facebook' => 'https://www.facebook.com/yiitech/',
+                'googleplus' => 'https://plus.google.com/107270789500352408345',
+                'website' => 'http://yii.tech',
+            ],
+        ];
+
+        return $team;
     }
 }
