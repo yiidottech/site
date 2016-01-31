@@ -60,10 +60,18 @@ Our team was founded and currently being managed by two brothers, Igor and Boris
 ',
     'index.about.team.igor.name' => 'Igor Kulomzin',
     'index.about.team.igor.role' => 'Backend Developer, Project Manager',
-    'index.about.team.igor.bio' => '',
+    'index.about.team.igor.bio' => 'Was born and currently lives in Ulyanovsk, Russia. Web development is his main work
+and hobby. He has 12+ years experience in web development and e-commerce. 5+ years in PC keys selling platforms
+development.
+<br><br>
+When out of work he likes fishing in summer, skiing in winter and travelling abroad once a year.',
     'index.about.team.boris.name' => 'Boris Kulomzin',
     'index.about.team.boris.role' => 'Creative Director, Branding, Multimedia',
-    'index.about.team.boris.bio' => '',
+    'index.about.team.boris.bio' => 'Was born and currently lives in Ulyanovsk, Russia. Multimedia and Video is his
+main work and hobby. But he also has good skills in branding and advertising. He always full of creativity.
+<br><br>
+When out of work he likes playing guitar with his band. All summer he spends outside, that gives him better
+ideas for the work. Likes travelling abroad.',
     'index.testimonials.text.1' => 'Yii.tech are awesome guys. They are really professionals in what they do.
 We are glad to do business with them.',
     'index.testimonials.author.1' => 'Shane Rushent <cite>OnlineKeyStore.com</cite>',
@@ -125,9 +133,12 @@ but you will already like what we did! <i class="fa fa-smile-o"></i>',
     'projects.title.platform-social-login' => 'In-site Social Login',
     'projects.title.platform-affiliates' => 'Affiliates module',
     'projects.title.platform-sellers' => 'Sellers module',
-    'projects.title.platform-gateways-integration' => 'Payment Integration',
+    'projects.title.platform-helpdesk' => 'HelpDesk module',
     'projects.title.oks-forum'  => 'Forum integration',
     'projects.title.oks-support-site' => 'Support site integration',
+    'projects.title.platform-gateways-integration' => 'Payment Integration',
+    'projects.title.oks-facebook-app' => 'Facebook Store',
+    'projects.title.oks-data-feeds' => 'Data Feeds',
     'index.work.more' => '... and many other completed projects not listed above. Contact us on more details!',
 
     'index.prices.title' => 'Our Pricing',

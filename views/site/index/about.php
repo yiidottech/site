@@ -148,7 +148,7 @@
                                 <div class="social-list">
                                     <ul>
                                         <?php
-                                            foreach (['website','facebook','twitter','googleplus','dribbble','behance','instagram','devianart'] as $s) {
+                                            foreach (['website','facebook','vk','twitter','google-plus','github','dribbble','behance','instagram','devianart'] as $s) {
                                                 if (isset($v[$s])) {
                                                     echo '<li><a href="' . $v[$s] . '"><i class="fa fa-' . ($s == 'website' ? 'globe' : $s) . '"></i></a></li>';
                                                 }

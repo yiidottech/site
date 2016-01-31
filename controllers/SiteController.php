@@ -134,9 +134,13 @@ class SiteController extends Controller
             'platform-social-login' => ['platform,frontend,backend'],
             'platform-affiliates' => ['platform,backend,frontend'],
             'platform-sellers' => ['platform,backend,frontend'],
+            'platform-helpdesk' => ['platform,backend,frontend'],
+            'platform-gateways-integration' => ['backend,gateways'],
             'oks-forum'  => ['webdesign,backend,frontend'],
             'oks-support-site' => ['webdesign,backend,frontend'],
-            'platform-gateways-integration' => ['platform,backend,gateways'],
+            'oks-facebook-app' => ['platform,backend,frontend,apps,mobile'],
+            'oks-data-feeds' => ['platform,backend'],
+
         ];
 
         $return = [];
@@ -189,16 +193,19 @@ class SiteController extends Controller
     {
         $team = [
             'igor' => [
-                'twitter' => 'http://twitter.com/yiitech',
-                'facebook' => 'https://www.facebook.com/yiitech/',
-                'googleplus' => 'https://plus.google.com/107270789500352408345',
-                'website' => 'http://yii.tech',
+                'twitter' => 'http://twitter.com/igor_kulomzin',
+                'facebook' => 'https://www.facebook.com/yakrosafcheg',
+                'google-plus' => 'https://plus.google.com/107270789500352408345',
+                'website' => 'http://igoryan.me',
+                'vk' => 'https://vk.com/igor.kulomzin',
+                'github' => 'https://github.com/igoryan',
             ],
             'boris' => [
-                'twitter' => 'http://twitter.com/yiitech',
-                'facebook' => 'https://www.facebook.com/yiitech/',
-                'googleplus' => 'https://plus.google.com/107270789500352408345',
-                'website' => 'http://yii.tech',
+                //'twitter' => 'http://twitter.com/yiitech',
+                'facebook' => 'https://www.facebook.com/profile.php?id=100001897357984',
+                'google-plus' => 'https://plus.google.com/107713908467465148760',
+                //'website' => 'http://yii.tech',
+                'vk' => 'http://vk.com/id50622486',
             ],
         ];
 
