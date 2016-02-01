@@ -720,25 +720,25 @@
 						'.iphone-slider .royalSlider': {
 							options: {
 								controlNavigation: 'none', 
-								imageScaleMode: 'fill'
+								imageScaleMode: 'fit'
 							}
 						}, 
 						'.ipad-slider .royalSlider': {
 							options: {
 								controlNavigation: 'none', 
-								imageScaleMode: 'fill'
+								imageScaleMode: 'fit'
 							}
 						}, 
 						'.macbook-slider .royalSlider': {
 							options: {
 								controlNavigation: 'none', 
-								imageScaleMode: 'fill'
+								imageScaleMode: 'fit'
 							}
 						}, 
 						'.standard-slider .royalSlider': {
 							options: {
 								controlNavigation: 'none', 
-								imageScaleMode: 'fill'
+								imageScaleMode: 'fit'
 							}
 						}, 
 						'.recent-post-slider .royalSlider': {
@@ -747,13 +747,13 @@
 								sliderDrag: false, 
 								sliderTouch: false, 
 								controlNavigation: 'none', 
-								imageScaleMode: 'fill'
+								imageScaleMode: 'fit'
 							}
 						}, 
 						'.nearby-slider .royalSlider': {
 							options: {
 								keyboardNavEnabled: true, 
-								imageScaleMode: 'fill', 
+								imageScaleMode: 'fit',
 								visibleNearby: {
 									enabled: true, 
 									centerArea: 0.5, 

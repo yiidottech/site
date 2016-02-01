@@ -116,8 +116,7 @@ class SiteController extends Controller
             'oks-rebranding' => ['webdesign,backend,frontend,branding,mobile', 1],
             'site-buykey' => ['webdesign,backend,frontend,branding', 1],
             'site-buydlplay' => ['webdesign,backend,frontend,branding'],
-            'site-pcgmedia' => ['webdesign,backend,frontend,branding', 1],
-            'site-dl2play' => ['webdesign,branding,frontend', 1],
+            'site-dl2play' => ['webdesign,backend,frontend,branding', 1],
             'site-cdkeycompare' => ['webdesign,backend,frontend', 1],
             'oks-spin-and-win' => ['webdesign,backend,frontend'],
             'platform-antibot-cloudflare' => ['platform,backend'],
@@ -136,11 +135,11 @@ class SiteController extends Controller
             'platform-sellers' => ['platform,backend,frontend'],
             'platform-helpdesk' => ['platform,backend,frontend'],
             'platform-gateways-integration' => ['backend,gateways'],
+            'site-pcgmedia' => ['webdesign,backend,frontend', 1],
             'oks-forum'  => ['webdesign,backend,frontend'],
             'oks-support-site' => ['webdesign,backend,frontend'],
             'oks-facebook-app' => ['platform,backend,frontend,apps,mobile'],
             'oks-data-feeds' => ['platform,backend'],
-
         ];
 
         $return = [];
