@@ -143,12 +143,13 @@ but you will already like what we did! <i class="fa fa-smile-o"></i>',
 
     'index.prices.title' => 'Our Pricing',
     'index.prices.subtitle' => 'We are very reasonable when it comes about pricing.',
-    'index.prices.dev.title' => 'Development Plans',
     'index.prices.dev.title.1' => 'Quotation/Specs',
     'index.prices.dev.price.1' => '$0',
     'index.prices.dev.title.2' => 'Regular Projects',
     'index.prices.dev.price.2' => '$25',
     'index.prices.dev.title.3' => 'Dedicated Jobs',
     'index.prices.dev.price.3' => '$30',
-    'index.prices.hosting.title' => 'Hosting Plans',
+    'index.prices.hosting.text' => 'Prices for managed hosting start from $30 and set individually per client,
+depending on required resources and final requirements. We provide a 99.99% uptime. Contact us if you\'re interested
+in our hosting solutions.',
 ];

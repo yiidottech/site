@@ -58,6 +58,12 @@
 
                 </div>
 
+                <div class="row">
+                    <p class="lead">
+                        <?= \Yii::t('site', 'index.prices.hosting.text'); ?>
+                    </p>
+                </div>
+
             </div>
 
         </div>
