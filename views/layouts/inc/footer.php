@@ -36,7 +36,7 @@
                         <ul>
                             <li><a href="https://www.facebook.com/yiitech/"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="https://twitter.com/yiitech"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="https://plus.google.com/107270789500352408345"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="https://plus.google.com/+YiiTech"><i class="fa fa-google-plus"></i></a></li>
                             <li><a href="https://github.com/organizations/yiidottech"><i class="fa fa-github"></i></a></li>
                         </ul>
                     </div>
