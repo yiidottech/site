@@ -29,7 +29,7 @@
                                     <span class="sub-toggle"></span>
                                 </a>
                                 <ul>
-                                    <li><a href="https://www.support.yii.tech"><?= \Yii::t('labels', 'Support Helpdesk'); ?></a></li>
+                                    <li><a href="https://support.yii.tech"><?= \Yii::t('labels', 'Support Helpdesk'); ?></a></li>
                                 </ul>
                             </li>
                         </ul>
