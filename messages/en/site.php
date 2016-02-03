@@ -152,4 +152,11 @@ but you will already like what we did! <i class="fa fa-smile-o"></i>',
     'index.prices.hosting.text' => 'Prices for managed hosting start from $30 and set individually per client,
 depending on required resources and final requirements. We provide a 99.99% uptime. Contact us if you\'re interested
 in our hosting solutions.',
+
+    'index.contact.title' => 'Get in Touch',
+    'index.contact.subtitle' => 'Feel free to contact us if you have something to say!',
+    'index.contact.bn-title' => 'Contact us!',
+    'index.contact.video-bg-text' => 'So you are convinced that <span class="text-primary">Yii.tech</span> is good enough?',
+    'index.error.message.1' => 'The above error occurred while the Web server was processing your request.',
+    'index.error.message.2' => 'Please contact us if you think this is a server error. Thank you.',
 ];

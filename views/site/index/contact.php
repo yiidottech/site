@@ -1,3 +1,14 @@
+<?php
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model app\models\ContactForm */
+
+use yii\helpers\Html;
+use yii\web\View;
+use yii\bootstrap\ActiveForm;
+use yii\captcha\Captcha;
+?>
+
 <section class="section th-dark">
 
     <div class="section-row-container">
@@ -14,11 +25,13 @@
                             <div class="call-to-action-inner">
                                 <div class="col-text" data-animation-name="bounceIn">
                                     <h2 class="headline">
-                                        So you are convinced that <span class="text-primary">Yii.tech</span> is good enough?
+                                        <?= \Yii::t('site', 'index.contact.video-bg-text'); ?>
                                     </h2>
                                 </div>
                                 <div class="col-btn" data-animation-name="fadeInUp">
-                                    <a href="#contact" class="btn btn-lg btn-default">Contact us!</a>
+                                    <a href="#contact" class="btn btn-lg btn-default">
+                                        <?= \Yii::t('site', 'index.contact.bn-title'); ?>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +74,8 @@
                     <div class="col-lg-12">
 
                         <h1 class="section-title show-counter">
-                            Get in Touch
-                            <small>Feel free to contact us if you have something to say!</small>
+                            <?= \Yii::t('site', 'index.contact.title'); ?>
+                            <small><?= \Yii::t('site', 'index.contact.subtitle'); ?></small>
                         </h1>
 
                     </div>
@@ -73,39 +86,77 @@
 
                     <div class="col-md-8">
 
-                        <form method="post" class="form-horizontal contact-form" action="php/contact/contact.php">
+                        <?php $form = ActiveForm::begin([
+                            'id' => 'contact-form',
+                            'fieldConfig' => [
+                                'template' => "{input}\n{error}",
+                            ],
+                            'options' => [
+                                'class' => 'contact-form-custom'
+                            ],
+                        ]); ?>
 
-                            <!-- Honeypot SPAM Protection -->
-                            <input type="text" name="cf[honeypot]" style="display: none" placeholder="Spam Protection">
-                            <!-- END Honeypot SPAM Protection -->
+                        <div class="form-wrap">
+                            <div class="col-md-6">
+                                <?= $form->field($cf, 'name')->textInput(['placeholder' => $cf->getAttributeLabel('name')]) ?>
+                            </div>
+                            <div class="col-md-6">
+                                <?= $form->field($cf, 'email')->input('email', ['placeholder' => $cf->getAttributeLabel('email')]) ?>
+                            </div>
 
-                            <div class="form-group">
-                                <div class="col-md-6">
-                                    <input type="text" name="cf[name]" class="form-control required" placeholder="Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="email" name="cf[email]" class="form-control required email" placeholder="Email">
-                                </div>
+                            <div class="col-md-6">
+                                <?= $form->field($cf, 'url')->input('url', ['placeholder' => $cf->getAttributeLabel('url')]) ?>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-6">
-                                    <input type="url" name="cf[url]" class="form-control url" placeholder="URL">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" name="cf[subject]" class="form-control required" placeholder="Subject">
-                                </div>
+                            <div class="col-md-6">
+                                <?= $form->field($cf, 'subject')->textInput(['placeholder' => $cf->getAttributeLabel('subject')]) ?>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <textarea name="cf[message]" rows="6" class="form-control required" placeholder="Message"></textarea>
-                                </div>
+
+                            <div class="col-md-12">
+                                <?= $form->field($cf, 'body')->textArea(['rows' => 6, 'placeholder' => $cf->getAttributeLabel('body')]) ?>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <input type="submit" value="Submit" class="btn btn-sm btn-block btn-primary">
-                                </div>
+
+                            <div class="col-md-12">
+                                <?= $form->field($cf, 'verifyCode')->widget(Captcha::className(), [
+                                    'template' => '<div class="row"><div class="col-lg-9">{input}</div><div class="col-lg-3">{image}</div></div>',
+                                    'options' => ['placeholder' => $cf->getAttributeLabel('verifyCode'), 'class' => 'form-control'],
+
+                                ]) ?>
                             </div>
-                        </form>
+
+                            <div class="col-md-12">
+                                <?= Html::submitButton(\Yii::t('labels', 'Submit'), ['class' => 'btn btn-primary btn-block']) ?>
+                            </div>
+
+                        </div>
+
+                        <?php ActiveForm::end(); ?>
+
+                        <?php
+                            $this->registerJs("
+							$( '.contact-form-custom' ).on('beforeSubmit', function() {
+							  var form = this;
+							  $( 'button:submit', this ).attr('disabled', true).text('" . \Yii::t('labels', 'Please wait...') . "');
+							  $( form ).ajaxSubmit(function( response ) {
+									response = $.parseJSON( response );
+									$( $( document )[0].createElement( 'div' ) )
+										.addClass( 'alert' )
+										.toggleClass( 'alert-danger', ! response.success )
+										.toggleClass( 'alert-success', response.success )
+										.html( response.message )
+										.prepend( '<button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>' )
+										.hide().prependTo( form ).slideDown();
+
+                                    $( 'button:submit', this ).attr('disabled', false).text('" . \Yii::t('labels', 'Submit') . "');
+
+									if( response.success ) {
+										$( '.form-wrap', form ).resetForm().hide();
+									}
+
+								});
+								return false;
+							});
+                                ", View::POS_LOAD, 'my-options');
+                        ?>
 
                     </div>
 

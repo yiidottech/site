@@ -31,7 +31,7 @@ class AppAsset extends AssetBundle
         'plugins/mfp/jquery.mfp.css',
     ];
     public $js = [
-        'js/jquery-1.11.1.min.js',
+        //'js/jquery-1.11.1.min.js',
         'js/hydrogen.setup.min.js',
         'js/hydrogen.scripts.min.js',
         'js/hydrogen.plugins.js',
@@ -45,5 +45,7 @@ class AppAsset extends AssetBundle
         'plugins/form/jquery.validate.min.js',
     ];
     public $depends = [
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
     ];
 }

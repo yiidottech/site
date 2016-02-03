@@ -6,7 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
+// use app\models\LoginForm;
 use app\models\ContactForm;
 
 class SiteController extends Controller
@@ -42,6 +42,7 @@ class SiteController extends Controller
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
+                'foreColor'=>0xEC005F,
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
@@ -49,10 +50,27 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $model = new ContactForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->contact(Yii::$app->params['contactEmail'])) {
+                echo json_encode([
+                    'success' => true,
+                    'message' => 'Thank you! Your message has been sent, we\'ll get back to you shortly :)'
+                ]);
+            } else {
+                echo json_encode([
+                    'success' => false,
+                    'message' => 'An unknown error has occured while sending your message. Please check back soon or email us directly to mailto:' . Yii::$app->params['contactEmail'],
+                ]);
+            }
+            exit;
+        }
+
         return $this->render('index',[
             'allProjects' => $this->getProjects(),
             'projectCategories' => $this->getProjectCategories(),
             'team' => $this->getTeamMembers(),
+            'cf' => $model,
         ]);
     }
 
@@ -70,6 +88,7 @@ class SiteController extends Controller
         ]);
     }
 
+/*
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
@@ -91,24 +110,7 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
-
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
+*/
 
     protected function getProjects()
     {
@@ -198,6 +200,7 @@ class SiteController extends Controller
                 'website' => 'http://igoryan.me',
                 'vk' => 'https://vk.com/igor.kulomzin',
                 'github' => 'https://github.com/igoryan',
+                'linkedin' => 'https://linkedin.com/in/igor-kulomzin-93645621',
             ],
             'boris' => [
                 //'twitter' => 'http://twitter.com/yiitech',
