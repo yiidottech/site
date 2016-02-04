@@ -5,6 +5,7 @@
 
 use yii\helpers\Html;
 use app\assets\AppAsset;
+use cybercog\yii\googleanalytics\widgets\GATracking;
 
 AppAsset::register($this);
 ?>
@@ -15,6 +16,7 @@ AppAsset::register($this);
   <meta charset="<?= Yii::$app->charset ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="keywords" content="<?= \Yii::t('site', 'meta.keywords'); ?>">
   <meta name="description" content="<?= \Yii::t('site', 'meta.description'); ?>">
 
   <link rel="apple-touch-icon" sizes="57x57" href="/demo/favicon/apple-touch-icon-57x57.png">
@@ -71,6 +73,12 @@ include (__DIR__ . '/inc/footer.php');
 ?>
 </div>
 
+<?= $this->registerJs(
+    GATracking::widget([
+        'trackingId' => \Yii::$app->params['gaTrackingId'],
+        'omitScriptTag' => true
+    ]), \yii\web\View::POS_END
+); ?>
 
 <?php $this->endBody() ?>
 </body>

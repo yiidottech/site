@@ -1,12 +1,13 @@
 <?php
 
 return [
-    'meta.description' => 'creative agency, web development, e-commerce solutions, Yii framework development, X-Cart development,
+    'meta.keywords' => 'creative agency, web development, e-commerce solutions, Yii framework development, X-Cart development,
 CS-Cart development, Wordpress development, Drupal development, server optimization, server administration,
 ui/ux design, graphic design, branding',
+    'meta.description' => 'A team of professionals in web development, e-commerce, hosting solutions, PC games selling.',
     'meta.title' => 'Yii.tech - Creative Agency | Web development | UI/UX Design | Branding | Graphic design |
 E-Commerce solutions | PC CD Keys selling platform | Payment gateways | Server administration',
-    'footer.copyright' => 'Copyright &copy; 2016. <a href="#">Yii.tech</a>. All Rights Reserved.',
+    'footer.copyright' => 'Copyright &copy; 2016. <a href="/#">Yii.tech</a>. All Rights Reserved.',
 
     'index.splash.intro.1' => 'Hey there!',
     'index.splash.headline.1' => 'We are <span class="text-primary">Yii.</span>tech',
