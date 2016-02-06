@@ -36,3 +36,4 @@ phpunit.phar
 # other
 /log
 /tmp
+/web/*.html
