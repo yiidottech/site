@@ -125,7 +125,7 @@
 
                     <?php foreach ($team as $k => $v): ?>
 
-                    <div class="col-md-push-4 col-md-4 col-sm-4">
+                    <div class="col-md-4 col-sm-4">
                         <div class="team" data-animation-name="fadeInRight">
                             <div class="team-photo">
                                 <figure>

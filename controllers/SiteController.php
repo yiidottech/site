@@ -196,7 +196,7 @@ class SiteController extends Controller
             'igor' => [
                 'twitter' => 'http://twitter.com/igor_kulomzin',
                 'facebook' => 'https://www.facebook.com/yakrosafcheg',
-                'google-plus' => 'https://plus.google.com/107270789500352408345',
+                'google-plus' => 'https://plus.google.com/+igorkulomzin',
                 'website' => 'http://igoryan.me',
                 'vk' => 'https://vk.com/igor.kulomzin',
                 'github' => 'https://github.com/igoryan',
@@ -208,6 +208,13 @@ class SiteController extends Controller
                 'google-plus' => 'https://plus.google.com/107713908467465148760',
                 //'website' => 'http://yii.tech',
                 'vk' => 'http://vk.com/id50622486',
+            ],
+            'shane' => [
+                //'twitter' => 'http://twitter.com/yiitech',
+                'facebook' => 'https://www.facebook.com/shanerushent',
+                'google-plus' => 'https://plus.google.com/+shanerushent81',
+                //'website' => 'http://yii.tech',
+                'linkedin' => 'https://www.linkedin.com/in/pcmedialtd',
             ],
         ];
 
